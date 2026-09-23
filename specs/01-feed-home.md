@@ -1,6 +1,6 @@
 # SPEC 01 — Home del feed (reproducción visual de la plantilla)
 
-> **Status:** Borrador
+> **Status:** Aproved
 > **Depends on:** —
 > **Date:** 2026-09-23
 > **Objective:** Reproducir visualmente `references/pantallas/feed.dc.html` como la ruta `/`, con datos hardcodeados y links hacia placeholders, sin auth ni base de datos.
