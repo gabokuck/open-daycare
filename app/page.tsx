@@ -1,69 +1,144 @@
-import Image from "next/image";
+import Link from "next/link";
+import { CURRENT_USER, MOCK_POSTS } from "@/lib/mock/feed";
+import { AppShell } from "./_components/app-shell";
+import { Avatar } from "./_components/avatar";
+import { PostCard } from "./_components/post-card";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <AppShell>
+      <div style={{ marginBottom: "24px" }}>
+        <div
+          style={{
+            fontSize: "12.5px",
+            fontWeight: 800,
+            letterSpacing: "0.8px",
+            color: "#D9583C",
+            marginBottom: "4px",
+          }}
+        >
+          GUARDERÍA · SALA SOLES
+        </div>
+        <h1
+          style={{
+            fontFamily: "var(--font-fredoka)",
+            fontWeight: 600,
+            fontSize: "30px",
+            margin: 0,
+            color: "#3F362E",
+          }}
+        >
+          Buenas, Caro
+        </h1>
+        <p
+          style={{
+            margin: "5px 0 0",
+            color: "#94887B",
+            fontSize: "14.5px",
+          }}
+        >
+          12 niños · martes 17 jun
+        </p>
+      </div>
+
+      <Link
+        href="/crear-publicacion"
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "14px",
+          background: "#FFFDF9",
+          border: "1px solid #ECE0D0",
+          borderRadius: "18px",
+          padding: "14px 18px",
+          marginBottom: "24px",
+          boxShadow: "0 4px 14px -10px rgba(120,90,60,.4)",
+        }}
+      >
+        <Avatar
+          size={40}
+          bg="#F2937A"
+          fg="#fff"
+          initial={CURRENT_USER.initial}
+          name={CURRENT_USER.name}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <span
+          style={{
+            flex: 1,
+            color: "#A89A8B",
+            fontSize: "15px",
+          }}
+        >
+          Compartí un momento…
+        </span>
+        <span
+          style={{
+            width: "38px",
+            height: "38px",
+            borderRadius: "12px",
+            background: "#FBE3D8",
+            color: "#E0654A",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flex: "none",
+          }}
+        >
+          <svg
+            width="19"
+            height="19"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+            <circle cx="12" cy="13" r="4" />
+          </svg>
+        </span>
+      </Link>
+
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "14px",
+          marginBottom: "14px",
+        }}
+      >
+        <span
+          style={{
+            fontSize: "12.5px",
+            fontWeight: 800,
+            letterSpacing: "0.8px",
+            color: "#8A7C6D",
+          }}
+        >
+          PUBLICADO HOY
+        </span>
+        <span
+          style={{
+            flex: 1,
+            height: "1px",
+            background: "#E7DAC8",
+          }}
+        />
+      </div>
+
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "16px",
+        }}
+      >
+        {MOCK_POSTS.map((post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
+      </div>
+    </AppShell>
   );
 }
