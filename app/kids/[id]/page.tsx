@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   MOCK_KIDS,
@@ -27,7 +28,7 @@ export default async function KidProfilePage({ params }: KidProfilePageProps) {
 
   return (
     <AppShell contentMaxWidth={820}>
-      <a
+      <Link
         href="/kids"
         style={{
           display: "flex",
@@ -53,7 +54,7 @@ export default async function KidProfilePage({ params }: KidProfilePageProps) {
           <path d="m15 18-6-6 6-6" />
         </svg>
         Volver a Niños
-      </a>
+      </Link>
 
       <div
         style={{
@@ -109,7 +110,7 @@ export default async function KidProfilePage({ params }: KidProfilePageProps) {
                 {kid.age} · Sala Soles
               </p>
             </div>
-            <a
+            <Link
               href={`/kids/${kid.id}/edit`}
               style={{
                 border: "1.5px solid #ECE0D0",
@@ -123,7 +124,7 @@ export default async function KidProfilePage({ params }: KidProfilePageProps) {
               }}
             >
               Editar
-            </a>
+            </Link>
           </div>
 
           {kid.allergyText && (
@@ -270,7 +271,7 @@ export default async function KidProfilePage({ params }: KidProfilePageProps) {
             gap: "14px",
           }}
         >
-          <a
+          <Link
             href={`/kids/${kid.id}/day-summary`}
             style={{
               display: "flex",
@@ -301,7 +302,7 @@ export default async function KidProfilePage({ params }: KidProfilePageProps) {
               <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
             </svg>
             Resumen del día
-          </a>
+          </Link>
 
           <div
             style={{
@@ -332,7 +333,7 @@ export default async function KidProfilePage({ params }: KidProfilePageProps) {
               {kid.parents.map((parent) => (
                 <ParentRow key={parent.initial + parent.name} parent={parent} />
               ))}
-              <a
+              <Link
                 href={`/kids/${kid.id}/parents/new`}
                 style={{
                   display: "flex",
@@ -377,7 +378,7 @@ export default async function KidProfilePage({ params }: KidProfilePageProps) {
                 >
                   Vincular otro padre
                 </span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

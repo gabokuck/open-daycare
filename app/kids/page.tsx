@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { AppShell } from "@/app/_components/app-shell";
 import { KidsGrid } from "./_components/kids-grid";
 
@@ -42,7 +43,7 @@ export default function KidsPage() {
             Niños
           </h1>
         </div>
-        <a
+        <Link
           href="/kids/new"
           style={{
             display: "flex",
@@ -72,7 +73,7 @@ export default function KidsPage() {
             <path d="M12 5v14M5 12h14" />
           </svg>
           Agregar niño
-        </a>
+        </Link>
       </div>
 
       <div
