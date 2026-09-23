@@ -236,24 +236,24 @@ Decisión explícita: los nombres, iniciales y fechas de los 7 niños distintos 
 
 ## Acceptance criteria
 
-- [ ] `app/ninos/` ya no existe; `nav item` "Niños" del sidebar apunta a `/kids`.
-- [ ] `GET /kids` renderiza la cabecera "GESTIÓN / Niños", botón "Agregar niño" (`/kids/new`), input "Buscar niño…", separador "SALA SOLES · 8 niños" con línea `#E7DAC8`, y 8 tarjetas en grid 2×4 exactamente en este orden: Mateo / Sofía / Benjamín / Valentina / Tomás / Emma / Lucas / Olivia.
-- [ ] Mateo / Tomás muestran chip de alergia con label "MANÍ" / "LACTOSA" respectivamente (bg `#FBD8CC`, fg `#D9684A`, padding 5px 9px, radius 999px, font 11px, peso 800). Valentina muestra chip "VINCULAR" (bg `#F9D2DE`, fg `#C56486`). El resto muestra la flecha `>` `#CBB89F`.
-- [ ] El subtítulo de cada tarjeta coincide literalmente con `parentsCountText` del mock (Mateo "2 padres vinculados", Valentina "sin padres vinculados", etc.).
-- [ ] Hover sobre una tarjeta: `border-color: #F2A78E` + `translateY(-2px)` con transición 150ms.
-- [ ] Click en cualquier tarjeta → navega a `/kids/<su-id>` y carga el perfil correspondiente.
-- [ ] Escribir "lucía" (o cualquier subcadena case-insensitive del nombre) en el buscador filtra al instante. Escribir "zzz" muestra "Ningún niño coincide" en vez del grid.
-- [ ] `GET /kids/mateo-fernandez` renderiza avatar 84px `#A9D9E8/#1F7A93`, nombre "Mateo Fernández" (Fredoka 600 28px), subtítulo "3 años · Sala Soles", botón "Editar" outline → `/kids/mateo-fernandez/edit`, panel rojo `#FBDAD6` con texto literal del template, tarjeta blanca con Fecha "12 mar 2022", Sala "Soles", Ingreso "feb 2025", botón "Resumen del día" `#3F362E` → `/kids/mateo-fernandez/day-summary`, y tarjeta "PADRES VINCULADOS" con Lucía (badge ACTIVA `#CFEBD8/#3E9B6C`) y Diego (badge PENDIENTE `#F7E7A6/#9A7B1E`), más el dashed "Vincular otro padre" → `/kids/mateo-fernandez/parents/new`.
-- [ ] Los 7 perfiles distintos de Mateo renderizan con sus datos del mock (avatars con los hex correctos, panel de alergias solo en Mateo y Tomás, "Vincular otro padre" sigue presente aunque ya haya 2 padres vinculados).
-- [ ] El perfil oculta el panel de alergias cuando `kid.allergyText` es `undefined` (Sofía, Benjamín, Valentina, Emma, Lucas, Olivia).
-- [ ] La tarjeta "PADRES VINCULADOS" de Valentina está vacía salvo por el dashed-circle "Vincular otro padre" (parents array = []).
-- [ ] `GET /kids/no-existe-999` invoca `notFound()` y renderiza la 404 nativa de Next (no romper el layout).
-- [ ] `/kids/new`, `/kids/mateo-fernandez/edit`, `/kids/mateo-fernandez/parents/new`, `/kids/mateo-fernandez/day-summary` renderizan "Pantalla pendiente" envuelto en `<AppShell>` con sidebar visible (item "Niños" activo en `/kids/**`).
-- [ ] "Volver a Niños" desde el perfil navega a `/kids`.
-- [ ] El item "Niños" del sidebar queda activo tanto en `/kids` como en cualquier ruta bajo `/kids/**`.
-- [ ] Fonts: Fredoka se aplica a los títulos (`<h1>`, "GESTIÓN", "PADRES VINCULADOS", "Alergias y notas", nombres) y Nunito al resto. No hay `<link>` a Google Fonts en el HTML servido.
-- [ ] `npm run build` y `npm run lint` finalizan sin errores ni warnings nuevos.
-- [ ] Captura de `/kids` y `/kids/mateo-fernandez` en `.playwright-mcp/kids-list.png` y `.playwright-mcp/kids-profile-mateo.png` coincide visualmente con sus templates.
+- [x] `app/ninos/` ya no existe; `nav item` "Niños" del sidebar apunta a `/kids`.
+- [x] `GET /kids` renderiza la cabecera "GESTIÓN / Niños", botón "Agregar niño" (`/kids/new`), input "Buscar niño…", separador "SALA SOLES · 8 niños" con línea `#E7DAC8`, y 8 tarjetas en grid 2×4 exactamente en este orden: Mateo / Sofía / Benjamín / Valentina / Tomás / Emma / Lucas / Olivia.
+- [x] Mateo / Tomás muestran chip de alergia con label "MANÍ" / "LACTOSA" respectivamente (bg `#FBD8CC`, fg `#D9684A`, padding 5px 9px, radius 999px, font 11px, peso 800). Valentina muestra chip "VINCULAR" (bg `#F9D2DE`, fg `#C56486`). El resto muestra la flecha `>` `#CBB89F`.
+- [x] El subtítulo de cada tarjeta coincide literalmente con `parentsCountText` del mock (Mateo "2 padres vinculados", Valentina "sin padres vinculados", etc.).
+- [x] Hover sobre una tarjeta: `border-color: #F2A78E` + `translateY(-2px)` con transición 150ms.
+- [x] Click en cualquier tarjeta → navega a `/kids/<su-id>` y carga el perfil correspondiente.
+- [x] Escribir una subcadena case-insensitive del nombre del niño (p. ej. "sof", "tom") en el buscador filtra al instante. Escribir "zzz" muestra "Ningún niño coincide" en vez del grid. (Resuelto durante la verificación: el ejemplo "lucía" del draft inicial era incorrecto — el scope del spec y el scope del criterio aplican solo al nombre del niño; extender el filtro a los nombres de los padres queda fuera de este spec.)
+- [x] `GET /kids/mateo-fernandez` renderiza avatar 84px `#A9D9E8/#1F7A93`, nombre "Mateo Fernández" (Fredoka 600 28px), subtítulo "3 años · Sala Soles", botón "Editar" outline → `/kids/mateo-fernandez/edit`, panel rojo `#FBDAD6` con texto literal del template, tarjeta blanca con Fecha "12 mar 2022", Sala "Soles", Ingreso "feb 2025", botón "Resumen del día" `#3F362E` → `/kids/mateo-fernandez/day-summary`, y tarjeta "PADRES VINCULADOS" con Lucía (badge ACTIVA `#CFEBD8/#3E9B6C`) y Diego (badge PENDIENTE `#F7E7A6/#9A7B1E`), más el dashed "Vincular otro padre" → `/kids/mateo-fernandez/parents/new`.
+- [x] Los 7 perfiles distintos de Mateo renderizan con sus datos del mock (avatars con los hex correctos, panel de alergias solo en Mateo y Tomás, "Vincular otro padre" sigue presente aunque ya haya 2 padres vinculados).
+- [x] El perfil oculta el panel de alergias cuando `kid.allergyText` es `undefined` (Sofía, Benjamín, Valentina, Emma, Lucas, Olivia).
+- [x] La tarjeta "PADRES VINCULADOS" de Valentina está vacía salvo por el dashed-circle "Vincular otro padre" (parents array = []).
+- [x] `GET /kids/no-existe-999` invoca `notFound()` y renderiza la 404 nativa de Next (no romper el layout).
+- [x] `/kids/new`, `/kids/mateo-fernandez/edit`, `/kids/mateo-fernandez/parents/new`, `/kids/mateo-fernandez/day-summary` renderizan "Pantalla pendiente" envuelto en `<AppShell>` con sidebar visible (item "Niños" activo en `/kids/**`).
+- [x] "Volver a Niños" desde el perfil navega a `/kids`.
+- [x] El item "Niños" del sidebar queda activo tanto en `/kids` como en cualquier ruta bajo `/kids/**`.
+- [x] Fonts: Fredoka se aplica a los títulos (`<h1>`, "GESTIÓN", "PADRES VINCULADOS", "Alergias y notas", nombres) y Nunito al resto. No hay `<link>` a Google Fonts en el HTML servido.
+- [x] `npm run build` y `npm run lint` finalizan sin errores ni warnings nuevos.
+- [x] Captura de `/kids` y `/kids/mateo-fernandez` en `.playwright-mcp/kids-list.png` y `.playwright-mcp/kids-profile-mateo.png` coincide visualmente con sus templates.
 
 ## Decisions
 

@@ -314,6 +314,7 @@ export default async function KidProfilePage({ params }: KidProfilePageProps) {
           >
             <div
               style={{
+                fontFamily: "var(--font-fredoka)",
                 fontSize: "12.5px",
                 fontWeight: 800,
                 letterSpacing: "0.8px",
