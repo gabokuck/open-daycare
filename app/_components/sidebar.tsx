@@ -274,9 +274,11 @@ export function Sidebar() {
           <div style={{ flex: 1, minWidth: 0 }}>
             <div
               style={{
-                fontWeight: 800,
+                fontFamily: "var(--font-fredoka)",
+                fontWeight: 600,
                 fontSize: "14px",
                 color: "#3F362E",
+                lineHeight: 1.15,
               }}
             >
               {CURRENT_USER.name}

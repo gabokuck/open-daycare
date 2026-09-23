@@ -6,10 +6,42 @@ permission:
   edit:
     "*": deny
     "specs/**/*.md": allow
+  read: allow
+  glob: allow
+  grep: allow
+  list: allow
+  webfetch: allow
   bash:
+    "rm -rf /*": deny
+    "rm -rf /": deny
+    "rm *": deny
     "*": ask
     "npm run build": allow
     "npm run lint": allow
+    "npx tsc *": allow
+    "npx eslint *": allow
+    "ls *": allow
+    "cat *": allow
+    "head *": allow
+    "tail *": allow
+    "wc *": allow
+    "echo *": allow
+    "pwd": allow
+    "whoami": allow
+    "which *": allow
+    "sleep *": allow
+    "curl *": allow
+    "ps *": allow
+    "kill *": allow
+    "pkill *": allow
+    "mkdir *": allow
+    "file *": allow
+    "du *": allow
+    "git status*": allow
+    "git log *": allow
+    "git diff *": allow
+    "git branch *": allow
+    "git show *": allow
 ---
 
 Eres el verificador de acceptance criteria de los specs de este repo.
@@ -58,7 +90,7 @@ Para cada criterio, elige el más barato y confiable. Marca el método elegido p
 
 ## Edición del spec
 
-Edita únicamente `specs/<archivo>.md`. Tres casos por criterio:
+**Editar el spec es parte obligatoria de la verificación, no opcional.** Después de verificar cada criterio, actualiza `specs/<archivo>.md` antes de pasar al siguiente. Tres casos por criterio:
 
 - **Pasa** → cambia `- [ ]` por `- [x]`, preservando el texto exacto del criterio.
 - **Falla** → deja `- [ ]` y agrega al final del item, en la misma línea:

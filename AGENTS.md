@@ -30,10 +30,13 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Spec-driven workflow
 
-Two repo-local skills drive feature work:
+Three repo-local entry points drive feature work:
 
 - `/spec` (`.agents/skills/spec`) — produces a spec into `specs/<name>/spec.md`. Use before writing any non-trivial feature.
 - `/spec-impl` (`.agents/skills/spec-impl`) — implements an approved spec on a branch named after the spec.
+- `/spec-verify` (`.opencode/command/spec-verify`) — verifies an approved spec against its acceptance criteria via the `spec-verifier` subagent (Playwright + Context7 + build/lint). Edits `specs/<name>.md` flipping `- [ ]` → `- [x]` for criteria that pass and appending inline `— FAIL: …` notes for the ones that don't.
+
+The `spec-verifier` subagent lives at `.opencode/agent/spec-verifier.md` with read/search permissions set to `allow` and edit restricted to `specs/**/*.md`; no per-file approval is required for verification work.
 
 ## Reference material (read-only)
 
@@ -44,6 +47,11 @@ Two repo-local skills drive feature work:
 
 - Playwright — declared in `opencode.json`. All Playwright output (screenshots, console logs, page snapshots) **must** land in `.playwright-mcp/`; the folder is already in `.gitignore`.
 - Context7 — fetch current docs for Next.js, Tailwind v4, etc. Training data is older than Next 16.
+
+## Agents
+
+- `spec-verifier`: Verifies the acceptance criteria of a spec file. Reviews the implementation against each criterion, edits the spec flipping `- [ ]` → `- [x]` for criteria that pass and appending inline `— FAIL: …` notes for the ones that don't. Uses Playwright MCP to compare screenshots against `references/` and Context7 MCP to validate Next.js / Tailwind v4 best practices. Read/search permissions are `allow`; edit is restricted to `specs/**/*.md`.
+
 
 ## Reglas de código
 

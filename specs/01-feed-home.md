@@ -1,6 +1,6 @@
 # SPEC 01 — Home del feed (reproducción visual de la plantilla)
 
-> **Status:** Aproved
+> **Status:** Implementado
 > **Depends on:** —
 > **Date:** 2026-09-23
 > **Objective:** Reproducir visualmente `references/pantallas/feed.dc.html` como la ruta `/`, con datos hardcodeados y links hacia placeholders, sin auth ni base de datos.
@@ -120,18 +120,18 @@ Decisión explícita: este array sigue el patrón que dejaremos en el repo para 
 
 ## Acceptance criteria
 
-- [ ] `GET /` renderiza la sidebar completa y el feed con el saludo literal "Buenas, Caro" y subtítulo literal "12 niños · martes 17 jun".
-- [ ] El item "Feed" del nav está pintado con el fondo `#FBE3D8` y el color `#D9583C`; el resto con fondo transparente y `#6E6359`.
-- [ ] Aparecen exactamente tres posts en este orden: Mateo/LOGRO/14:20/3 likes/1 comentario, Mateo/ACTIVIDAD/09:40/5 likes/2 comentarios + placeholder de foto con borde dasheado, Anuncio general/ANUNCIO/07:50/8 likes/0 comentarios.
-- [ ] El badge de LOGRO usa fondo `#CFEBD8` y texto `#3E9B6C`; ACTIVIDAD `#C7E7F1 / #2E89A6`; ANUNCIO `#CCD8F4 / #4E72C8`. La bolita y el texto del badge coinciden con el template.
-- [ ] El avatar "Anuncio general" renderiza el icono de megáfono del template en lugar de una inicial.
-- [ ] Click en "Niños" → navega a `/ninos` y muestra "Pantalla pendiente" manteniendo el sidebar.
-- [ ] Idem para "Avisos" (`/avisos`), "Mi cuenta" (`/mi-cuenta`), "Nueva publicación" (`/crear-publicacion`) y el icono de logout (`/login`).
-- [ ] La card "Compartí un momento…" navega a `/crear-publicacion`.
-- [ ] El link "Editar" de cada post también navega a `/crear-publicacion`.
-- [ ] Fredoka se aplica a los títulos de posts, header, logo y tags de usuario; Nunito al resto del texto. No hay `<link>` a Google Fonts en el HTML servido.
-- [ ] `npm run build` y `npm run lint` finalizan sin errores ni warnings nuevos.
-- [ ] Captura de `/` a 1280×800 en `.playwright-mcp/feed-home.png` coincide visualmente con el template en paleta, tipografía, espaciados y radios.
+- [x] `GET /` renderiza la sidebar completa y el feed con el saludo literal "Buenas, Caro" y subtítulo literal "12 niños · martes 17 jun".
+- [x] El item "Feed" del nav está pintado con el fondo `#FBE3D8` y el color `#D9583C`; el resto con fondo transparente y `#6E6359`.
+- [x] Aparecen exactamente tres posts en este orden: Mateo/LOGRO/14:20/3 likes/1 comentario, Mateo/ACTIVIDAD/09:40/5 likes/2 comentarios + placeholder de foto con borde dasheado, Anuncio general/ANUNCIO/07:50/8 likes/0 comentarios.
+- [x] El badge de LOGRO usa fondo `#CFEBD8` y texto `#3E9B6C`; ACTIVIDAD `#C7E7F1 / #2E89A6`; ANUNCIO `#CCD8F4 / #4E72C8`. La bolita y el texto del badge coinciden con el template.
+- [x] El avatar "Anuncio general" renderiza el icono de megáfono del template en lugar de una inicial.
+- [x] Click en "Niños" → navega a `/ninos` y muestra "Pantalla pendiente" manteniendo el sidebar.
+- [x] Idem para "Avisos" (`/avisos`), "Mi cuenta" (`/mi-cuenta`), "Nueva publicación" (`/crear-publicacion`) y el icono de logout (`/login`).
+- [x] La card "Compartí un momento…" navega a `/crear-publicacion`.
+- [x] El link "Editar" de cada post también navega a `/crear-publicacion`.
+- [x] Fredoka se aplica a los títulos de posts, header, logo y tags de usuario; Nunito al resto del texto. No hay `<link>` a Google Fonts en el HTML servido.
+- [x] `npm run build` y `npm run lint` finalizan sin errores ni warnings nuevos.
+- [x] Captura de `/` a 1280×800 en `.playwright-mcp/feed-home.png` coincide visualmente con el template en paleta, tipografía, espaciados y radios.
 
 ## Decisions
 
