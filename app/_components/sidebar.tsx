@@ -56,7 +56,7 @@ const NAV_ITEMS: { href: string; label: string; icon: ReactNode }[] = [
     ),
   },
   {
-    href: "/ninos",
+    href: "/kids",
     label: "Niños",
     icon: (
       <svg
