@@ -44,3 +44,7 @@ Two repo-local skills drive feature work:
 
 - Playwright — declared in `opencode.json`. All Playwright output (screenshots, console logs, page snapshots) **must** land in `.playwright-mcp/`; the folder is already in `.gitignore`.
 - Context7 — fetch current docs for Next.js, Tailwind v4, etc. Training data is older than Next 16.
+
+## Reglas de código
+
+- Usar código limpio, nombres, funciones, variables etc. en inglés
