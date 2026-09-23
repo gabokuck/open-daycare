@@ -3,7 +3,7 @@ interface AvatarProps {
   name?: string;
   bg: string;
   fg: string;
-  size?: 38 | 40 | 44;
+  size?: 38 | 40 | 44 | 48 | 84;
   isGeneral?: boolean;
 }
 
@@ -15,7 +15,8 @@ export function Avatar({
   size = 44,
   isGeneral = false,
 }: AvatarProps) {
-  const fontSize = size === 44 ? 17 : 16;
+  const fontSize =
+    size === 84 ? 34 : size === 48 ? 19 : size === 44 ? 17 : 16;
 
   return (
     <div
