@@ -3,9 +3,10 @@ import { Sidebar } from "./sidebar";
 
 interface AppShellProps {
   children: ReactNode;
+  contentMaxWidth?: number | string;
 }
 
-export function AppShell({ children }: AppShellProps) {
+export function AppShell({ children, contentMaxWidth = 760 }: AppShellProps) {
   return (
     <div
       style={{
@@ -25,7 +26,7 @@ export function AppShell({ children }: AppShellProps) {
       >
         <div
           style={{
-            maxWidth: "760px",
+            maxWidth: `${contentMaxWidth}px`,
             width: "100%",
             margin: "0 auto",
             padding: "34px 40px 80px",
