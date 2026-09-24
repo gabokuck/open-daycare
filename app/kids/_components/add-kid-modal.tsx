@@ -176,6 +176,7 @@ export function AddKidModal({ onClose }: AddKidModalProps) {
                     fontSize: "15px",
                     color: "#3F362E",
                     fontWeight: 700,
+                    fontFamily: "var(--font-fredoka)",
                   }}
                 >
                   <span>Soles</span>
