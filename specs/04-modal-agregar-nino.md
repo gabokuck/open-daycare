@@ -1,6 +1,6 @@
 # SPEC 04 — Modal "Agregar niño" en `/kids`
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** SPEC 02
 > **Date:** 2026-09-23
 > **Objective:** Reemplazar el placeholder `/kids/new` con un modal cliente en `/kids` que reproduce `references/pantallas/agregar-nino.dc.html`, abierto al pulsar el CTA "Agregar niño" y cerrable únicamente mediante los botones Cancelar / Guardar.
