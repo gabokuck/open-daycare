@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import { AppShell } from "@/app/_components/app-shell";
 import { KidsGrid } from "./_components/kids-grid";
-
-export const metadata: Metadata = {
-  title: "OpenDayCare · Kids",
-};
+import { AddKidModal } from "./_components/add-kid-modal";
 
 export default function KidsPage() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <AppShell contentMaxWidth={880}>
       <div
@@ -44,8 +44,9 @@ export default function KidsPage() {
             Niños
           </h1>
         </div>
-        <Link
-          href="/kids/new"
+        <button
+          type="button"
+          onClick={() => setIsOpen(true)}
           style={{
             display: "flex",
             alignItems: "center",
@@ -58,6 +59,9 @@ export default function KidsPage() {
             fontSize: "14.5px",
             boxShadow: "0 8px 18px -8px rgba(238,129,100,.7)",
             flex: "none",
+            border: "none",
+            cursor: "pointer",
+            fontFamily: "inherit",
           }}
         >
           <svg
@@ -74,7 +78,7 @@ export default function KidsPage() {
             <path d="M12 5v14M5 12h14" />
           </svg>
           Agregar niño
-        </Link>
+        </button>
       </div>
 
       <div
@@ -106,6 +110,8 @@ export default function KidsPage() {
       </div>
 
       <KidsGrid />
+
+      {isOpen && <AddKidModal onClose={() => setIsOpen(false)} />}
     </AppShell>
   );
 }
