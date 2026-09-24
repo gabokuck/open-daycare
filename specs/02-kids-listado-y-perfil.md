@@ -1,6 +1,6 @@
 # SPEC 02 — Listado de niños (`/kids`) y perfil de niño (`/kids/[id]`)
 
-> **Status:** Aprobado
+> **Status:** Implementado
 > **Depends on:** SPEC 01
 > **Date:** 2026-09-23
 > **Objective:** Reproducir visualmente `references/pantallas/ninos.dc.html` y `references/pantallas/perfil-nino.dc.html` como las rutas `/kids` y `/kids/[id]`, hardcodeando los 8 perfiles completos en `lib/mock/kids.ts`, eliminando el placeholder `/ninos` y dejando placeholders paralelos para los CTAs aún sin pantalla.
