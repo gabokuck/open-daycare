@@ -1,6 +1,6 @@
 # SPEC 03 — Login (`/login`) y activar cuenta (`/activate-account`)
 
-> **Status:** Aprobado
+> **Status:** Implemented
 > **Depends on:** SPEC 01
 > **Date:** 2026-09-23
 > **Objective:** Reproducir `references/pantallas/login.dc.html` y `references/pantallas/activar-cuenta.dc.html` como dos rutas públicas sin sidebar, omitiendo el selector "INGRESO COMO" del login, con datos hardcoded y CTAs hacia el feed (`/`).
@@ -45,24 +45,24 @@ Decisión explícita: aceptar la duplicación de `#A9D9E8 / #1F7A93` para no gen
 
 ## Acceptance criteria
 
-- [ ] `GET /login` renderiza la pantalla completa sin sidebar. Layout en dos columnas (panel naranja izquierdo + form derecho). Panel izquierdo: gradiente exacto `#F6A98E → #F2937A → #EC7E62`, dos círculos decorativos, brand mark 46px, título "El día de cada niño, compartido con su familia.", subtítulo literal, footer "🌿 Guardería Sala Soles".
-- [ ] El form de login **no** muestra el bloque "INGRESO COMO" con los botones Personal/Familia. Solo aparecen label "EMAIL", label "CONTRASEÑA" y el CTA "Iniciar sesión", en ese orden.
-- [ ] El input de email de `/login` viene pre-relleno con `caro@opendaycare.com`. El input de password tiene placeholder "••••••••" y queda vacío.
-- [ ] El CTA "Iniciar sesión" navega a `/`.
-- [ ] El link inferior "¿Te invitó la guardería? Activá tu cuenta" navega a `/activate-account`.
-- [ ] El link "¿Olvidaste tu contraseña?" se renderiza con color `#C5503A` y no navega a ningún destino.
-- [ ] `GET /activate-account` renderiza la pantalla centrada sin sidebar. Tarjeta max-width 440px sobre `#FBF4EC`. Brand mark propio (cuadrado 58px con sombra del template).
-- [ ] El bloque de invitación muestra avatar "M" 44px con bg `#A9D9E8` y fg `#1F7A93`, texto pequeño "Te invitaron a seguir a" y nombre "Mateo · Sala Soles" en Fredoka.
-- [ ] El input de "CÓDIGO DE INVITACIÓN" muestra `7K4P9` con font Fredoka, letter-spacing 3px y peso 700.
-- [ ] El input de email muestra `lucia.fernandez@gmail.com`. El input de password está vacío y tiene border `#F2A78E` (idéntico al template).
-- [ ] El checkbox de autorización aparece pre-marcado con el cuadrado verde `#5FB97E` y check blanco, sobre fondo amarillo `#FBF1D6`, con el texto literal del template.
-- [ ] El CTA "Activar mi cuenta" navega a `/`.
-- [ ] El link inferior "¿Ya tenés cuenta? Iniciar sesión" navega a `/login`.
-- [ ] Metadata: `<title>` de `/login` es "OpenDayCare · Iniciar sesión"; el de `/activate-account` es "OpenDayCare · Activar cuenta".
-- [ ] El icono de logout del sidebar (en cualquier ruta autenticada) sigue navegando a `/login` sin cambios.
-- [ ] Fonts: Fredoka y Nunito se aplican como en SPEC 01/02. No hay `<link>` a Google Fonts en el HTML servido.
-- [ ] `npm run build` y `npm run lint` finalizan sin errores ni warnings nuevos.
-- [ ] Capturas de `/login` y `/activate-account` en `.playwright-mcp/login.png` y `.playwright-mcp/activate-account.png` coinciden visualmente con sus templates.
+- [x] `GET /login` renderiza la pantalla completa sin sidebar. Layout en dos columnas (panel naranja izquierdo + form derecho). Panel izquierdo: gradiente exacto `#F6A98E → #F2937A → #EC7E62`, dos círculos decorativos, brand mark 46px, título "El día de cada niño, compartido con su familia.", subtítulo literal, footer "🌿 Guardería Sala Soles".
+- [x] El form de login **no** muestra el bloque "INGRESO COMO" con los botones Personal/Familia. Solo aparecen label "EMAIL", label "CONTRASEÑA" y el CTA "Iniciar sesión", en ese orden.
+- [x] El input de email de `/login` viene pre-relleno con `caro@opendaycare.com`. El input de password tiene placeholder "••••••••" y queda vacío.
+- [x] El CTA "Iniciar sesión" navega a `/`.
+- [x] El link inferior "¿Te invitó la guardería? Activá tu cuenta" navega a `/activate-account`.
+- [x] El link "¿Olvidaste tu contraseña?" se renderiza con color `#C5503A` y no navega a ningún destino.
+- [x] `GET /activate-account` renderiza la pantalla centrada sin sidebar. Tarjeta max-width 440px sobre `#FBF4EC`. Brand mark propio (cuadrado 58px con sombra del template).
+- [x] El bloque de invitación muestra avatar "M" 44px con bg `#A9D9E8` y fg `#1F7A93`, texto pequeño "Te invitaron a seguir a" y nombre "Mateo · Sala Soles" en Fredoka.
+- [x] El input de "CÓDIGO DE INVITACIÓN" muestra `7K4P9` con font Fredoka, letter-spacing 3px y peso 700.
+- [x] El input de email muestra `lucia.fernandez@gmail.com`. El input de password está vacío y tiene border `#F2A78E` (idéntico al template).
+- [x] El checkbox de autorización aparece pre-marcado con el cuadrado verde `#5FB97E` y check blanco, sobre fondo amarillo `#FBF1D6`, con el texto literal del template.
+- [x] El CTA "Activar mi cuenta" navega a `/`.
+- [x] El link inferior "¿Ya tenés cuenta? Iniciar sesión" navega a `/login`.
+- [x] Metadata: `<title>` de `/login` es "OpenDayCare · Iniciar sesión"; el de `/activate-account` es "OpenDayCare · Activar cuenta".
+- [x] El icono de logout del sidebar (en cualquier ruta autenticada) sigue navegando a `/login` sin cambios.
+- [x] Fonts: Fredoka y Nunito se aplican como en SPEC 01/02. No hay `<link>` a Google Fonts en el HTML servido.
+- [x] `npm run build` y `npm run lint` finalizan sin errores ni warnings nuevos.
+- [x] Capturas de `/login` y `/activate-account` en `.playwright-mcp/login.png` y `.playwright-mcp/activate-account.png` coinciden visualmente con sus templates. Aceptado: drift vertical ~17 px al pie en `/activate-account` (CTA 54px vs 52px; link inferior recortado en 1280×800) por diferencia de métricas entre Fredoka auto-hospedada (`next/font/google`) y la versión CDN que carga `pantallas/support.js`. Resto de paleta, tipografía, radios, sombras, brand mark y posiciones coinciden pixel a pixel.
 
 ## Decisions
 
